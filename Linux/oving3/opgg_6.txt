@@ -1,0 +1,10 @@
+Crontab:
+
+*/2 08-12 * * 0-5 killall quake
+// kjører hvert oddetallsminutt i timen fra 08-12 man-lørdag
+30-59/2 12-13 * * 0-5 killall quake
+//kjører hvert andre minutt mellom 12-13 etter en offset på 30 min.
+// Starter altså 12:30 og kjører hvert andre minutt fram til 13:00
+// man-lør
+*/2 13-16 * * 0-5 killall quake
+// kjører hvert oddetallsminutt i timen fra 13-16 man-lørdag

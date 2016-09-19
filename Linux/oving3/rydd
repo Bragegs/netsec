@@ -1,0 +1,4 @@
+#! /bin/sh
+# Oppgave 3
+
+find /home/debian/netsec/oving3 -name '*.jpg' -not -path '/home/debian/netsec/oving3/jpg/*' -exec /home/debian/netsec/oving3/flyttjpg {} \;

@@ -1,0 +1,19 @@
+echo Jeg heter `whoami`
+
+Whoami er et shell-program som skriver brukernavnet.
+Ved kjøring vil brukernavnet bli parset inn i teksten og svaret blir:
+
+Jet heter brage
+
+
+MASKIN=`hostname`
+
+Programmet hostname legges i variabel MASKIN
+ved kall av echo $MASKIN vil hostname kjøre og utskrift av brukernavn
+
+HVORERLS=`which ls`
+echo HVORERLS  // bin/ls
+
+forteller oss hvor ls-programmet finnes
+
+`echo ls -al`
