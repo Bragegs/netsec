@@ -1,5 +1,0 @@
-#! /bin/sh
-
-# OPPGAVE 4
-
-for f in *.txt; do cp $f ${f%.txt}.txt.kopi; done

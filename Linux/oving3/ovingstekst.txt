@@ -1,3 +1,0 @@
-#! /bin/sh
-
-wget http://www.iie.hist.no/fag/lsd/nedlastbart/12/fargedemo
