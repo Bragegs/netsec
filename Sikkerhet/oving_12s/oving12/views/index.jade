@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Log In
+        form(method='POST' action='javascript:handleLogin()')
+          div.form-group
+            label(for='username') username
+            input.form-control(type='text' id='username' placeholder='username' name='username')
+          div.form-group
+            label(for='password') Password
+            input.form-control(type='password' id='password' placeholder='password' name='password')
+          button.btn.btn-primary(type='submit' id='submitButton') Log in
+          #progress.rotating.progress
+
+  script(src="/javascripts/index.js")
+  script(src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/1.0.1/dist/progressbar.js")
