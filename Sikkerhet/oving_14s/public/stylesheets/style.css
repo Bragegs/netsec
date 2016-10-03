@@ -1,0 +1,73 @@
+body {
+  font-family: 'Roboto';
+  font-weight: 100;
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  margin-top: 40px;
+  font-size: 70px;
+}
+
+a:visited {
+  color: black;
+}
+a:hover {
+  color: black;
+}
+a {
+  text-decoration: undeline;
+  color: black;
+  font-size: 20px;
+}
+
+#progress {
+  height: 100px;
+  width: 100px;
+  margin: 50px auto;
+  background-color: white;
+  outline: none;
+
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotating {
+    from {
+      transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+    }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+  transform-origin: 50% 50%;
+}
