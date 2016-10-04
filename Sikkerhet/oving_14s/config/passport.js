@@ -15,6 +15,14 @@ passport.use(new GoogleStrategy({
         callbackURL:  '/auth/google/callback'
     },
     function(accessToken, refreshToken, profile, done) {
+      console.log("ACCESSTOKEN: ");
+      console.log(accessToken);
+      console.log("REFRESHTOKEN: ");
+      console.log(refreshToken);
+      console.log("GOOGLE-PROFILE: ");
+      console.log(profile);
+      console.log("VERIFIED: ");
+      console.log(done);
         process.nextTick(function () {
             return done(null, profile);
         });
