@@ -42,10 +42,22 @@ app.use('/', routes);
 
 
 
-app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+//app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'], accessType: 'offline', approvalPrompt: 'force' }));
+
+app.get('/auth/google', passport.authenticate('google', {
+      session: false,
+      accessType: 'offline',
+      approvalPrompt: 'force'
+}));
+app.get('/auth/google/callback', passport.authenticate('google', { session: false, failureRedirect: '/' }),function(req, res) {
+        //  req.session.user = req.user;
+        console.log('user', req.user);
+          res.redirect('/');
+});
+/*app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });
+*/
 
 
 // catch 404 and forward to error handler
