@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var dotenv = require('dotenv');
+var session = require('express-session');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -33,12 +34,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(session({ secret: 'secret' }));
 
 app.use('/', routes);
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 
@@ -49,16 +50,18 @@ app.get('/auth/google', passport.authenticate('google', {
       accessType: 'offline',
       approvalPrompt: 'force'
 }));
-app.get('/auth/google/callback', passport.authenticate('google', { session: false, failureRedirect: '/' }),function(req, res) {
-        //  req.session.user = req.user;
-        console.log('user', req.user);
-          res.redirect('/');
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),function(req, res) {
+    //  req.session.user = req.user;
+    console.log('user', req.user);
+    res.redirect('/');
 });
-/*app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
-  res.redirect(req.session.returnTo || '/');
-});
-*/
 
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
+app.get('/auth/twitter/callback',passport.authenticate('twitter', { failureRedirect: '/' }), function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
